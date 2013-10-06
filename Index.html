@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="shortcut icon" href="welcome.png">
@@ -33,6 +34,24 @@
         /*put image in center*/
         .carousel-inner .item img {
             margin: auto;
+        }
+
+        @media(max-width:767px) {
+            .calender{
+                         width:300px;
+                     }
+        }
+
+        @media(min-width:768px) {
+            .calender{
+                         width:450px;
+                     }
+        }
+
+        @media(min-width:992px) {
+        }
+
+        @media(min-width:1200px) {
         }
     </style>
 </head>
@@ -93,12 +112,12 @@
                             <label class="label label-danger">40404</label></em>
                         <br />
                         <div class="clearfix" style="margin: 3px auto;">
-                            <em class="pull-left text-muted">Twitter&nbsp;</em>
+                            <!--                            <em class="pull-left text-muted">Twitter&nbsp;</em>-->
                             <!-- Twitter follow us button -->
                             <a href="https://twitter.com/SwaminarayanLou" class="twitter-follow-button pull-left" data-show-count="false" data-dnt="true">Follow @SwaminarayanLou</a>
                             <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>
                             <!-- /Twitter follow us button -->
-                            <em class="pull-left  text-muted" style="padding-left: 30px;">Facebook</em>
+                            <!--                            <em class="pull-left  text-muted" style="padding-left: 30px;">Facebook</em>-->
                             <!-- Facebook follow us button -->
                             <div id="fb-root"></div>
                             <script>(function (d, s, id) {
@@ -163,11 +182,12 @@
                     </div>
                     <div id="calender">
                         <h3 class="text-primary">Temple Calender</h3>
-                        <a href="https://www.google.com/calendar/ical/dtuknehmqdp1if339die4fqe6c%40group.calendar.google.com/public/basic.ics" class="btn btn-warning">Subscribe</a><br />
+                        <a href="https://www.google.com/calendar/ical/dtuknehmqdp1if339die4fqe6c%40group.calendar.google.com/public/basic.ics" class="btn btn-warning">Subscribe</a>
+                        <a href="https://www.google.com/calendar/embed?src=dtuknehmqdp1if339die4fqe6c%40group.calendar.google.com&ctz=America/New_York" class="btn btn-default">Show Calender</a><br />
                         <em class="text-muted">Subscribe to temple the calender and get temple events right into your phone's calender.</em>
                         <br />
                         <br />
-                        <iframe src="https://www.google.com/calendar/embed?title=Temple%20Calender&amp;showTitle=0&amp;showPrint=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=dtuknehmqdp1if339die4fqe6c%40group.calendar.google.com&amp;color=%232952A3&amp;ctz=America%2FNew_York" style="border-width: 0" width="400" height="600" frameborder="0" scrolling="no"></iframe>
+                        <iframe class="calender" src="https://www.google.com/calendar/embed?showTitle=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=480&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=dtuknehmqdp1if339die4fqe6c%40group.calendar.google.com&amp;color=%232952A3&amp;ctz=America%2FNew_York" style="border-width: 0" height="480" frameborder="0" scrolling="no"></iframe>
                     </div>
                 </div>
             </div>
@@ -184,7 +204,7 @@
 
     <div id="footer">
         <div class="container">
-            <p class="text-muted credit">Shree Swaminarayan Temple, Louisville, Kentucky</p>
+            <p class="text-muted credit">Shree Swaminarayan Temple, Louisville, KY</p>
         </div>
     </div>
 
