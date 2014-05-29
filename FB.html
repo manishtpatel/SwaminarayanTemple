@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<!--facebook api-->
+<div id="fb-root"></div>
+<script>(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=570156973032128&version=v2.0";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<!--login button-->
+<div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true"></div>
+
+<br>
+<!--get photos-->
+<button onclick="getphotoes()">Get Photos</button>
+<br>
+
+<script>
+    var getphotoes = function(){
+        /* make the API call */
+        FB.api(
+                "/issolouisville/photos/uploaded",
+                function (response) {
+                    console.log(response);
+                    if (response && !response.error) {
+                        renderphotos(response);
+                        return;
+                    }
+                    alert('error');
+                }
+        );
+    }
+    
+    var renderphotos = function (response) {
+        /* handle the result */
+        response.data.forEach(function (entry) {
+            $('.carousel-inner')
+                    .append('<div class="item"><img src="' + entry.source + '"></div>');
+        });
+
+        $('.carousel-inner .item').first().addClass('active');
+
+        if(response.paging.next){
+            $.get(response.paging.next, function(nextresponse){
+                console.log('nextresponse', nextresponse)
+                if (response && !response.error) {
+                    renderphotos(nextresponse)
+                }
+            });
+        }
+    }
+</script>
+
+<div class="carousel-inner"></div>
+
+</body>
+</html>
